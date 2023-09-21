@@ -8,7 +8,6 @@
 // If you do not receive the GPL3.0 protocol ontology or you find a bug,
 // please let me know (email: fly_aaron.li@outlook.com)
 
-#include <ctime>
 #include <iostream>
 #include <random>
 #include <string>
@@ -19,7 +18,7 @@ std::vector<int> copy_container(std::vector<int> &data);
 void             print(std::vector<int> &vector, std::string algorithm_name, clock_t time_difference);
 void             Bubble_Sort(std::vector<int> vector);
 void             quick_sort(std::vector<int> vector);
-void             quick_sort_algorithm(std::vector<int> &vector, int start, int end);
+void             quick_sort_algorithm(std::vector<int> &vector, int left, int right);
 void             selection_sort(std::vector<int> vector);
 void             insertion_sort(std::vector<int> vector);
 
@@ -27,7 +26,7 @@ int main() {
     std::vector<int> data;
 
     /** Get random number */
-    random_data(data, 50000, 2, 100000);
+    random_data(data, 100, 2, 100000);
 
     Bubble_Sort(copy_container(data));
     quick_sort(copy_container(data));
@@ -54,9 +53,10 @@ void random_data(std::vector<int> &data, int quantity, int min_number, int max_n
         std::cerr << "The maximum random number is less than the number of target sequences!";
         return;
     }
-    std::default_random_engine         engine;
+    std::random_device                 device;
+    /** Generate unpredictable random numbers */
+    std::default_random_engine         engine(device());
     std::uniform_int_distribution<int> distribution_number(min_number, max_number);
-    engine.seed(time(0));
     for (int i = 0; i < quantity; ++i) {
         data.push_back(distribution_number(engine));
     }
@@ -95,10 +95,10 @@ std::vector<int> copy_container(std::vector<int> &data) {
  */
 void print(std::vector<int> &vector, const std::string algorithm_name, const clock_t time_difference) {
     // If you want to see if the sorting is correct, open the comment
-    //    std::cout << "The data is :\n";
-    //    for (auto const &c : vector) {
-    //        std::cout << c << " ";
-    //    }
+        std::cout << "The data is :\n";
+        for (auto const &c : vector) {
+            std::cout << c << " ";
+        }
     std::cout << "\n";
     /** I use the linux os,so clock() number need multiply by 1000 */
     std::cout << "The " << algorithm_name << " takes " << time_difference / 1000 << "ms\n\n";
@@ -141,7 +141,7 @@ void Bubble_Sort(std::vector<int> vector) {
  */
 void quick_sort(std::vector<int> vector) {
     clock_t start = clock();
-    quick_sort_algorithm(vector, 0, vector.size() - 1);
+    quick_sort_algorithm(vector, 0, static_cast<int>(vector.size() - 1));
     clock_t end = clock();
     print(vector, "Quick_sort", end - start);
 }
