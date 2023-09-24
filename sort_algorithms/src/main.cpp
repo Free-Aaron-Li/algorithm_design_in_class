@@ -15,19 +15,23 @@
 
 void             random_data(std::vector<int> &data, int quantity, int min_number, int max_number);
 std::vector<int> copy_container(std::vector<int> &data);
+void             print_sorted_list(bool selection);
 void             print(std::vector<int> &vector, std::string algorithm_name, clock_t time_difference);
 void             Bubble_Sort(std::vector<int> vector);
 void             quick_sort(std::vector<int> vector);
 void             quick_sort_algorithm(std::vector<int> &vector, int left, int right);
 void             selection_sort(std::vector<int> vector);
 void             insertion_sort(std::vector<int> vector);
+static bool      flag = false;
 
 int main() {
     std::vector<int> data;
 
     /** Get random number */
-    random_data(data, 100, 2, 100000);
+    random_data(data, 70000, 2, 100000);
 
+    /** Whether to print sorted documents */
+    print_sorted_list(false);
     Bubble_Sort(copy_container(data));
     quick_sort(copy_container(data));
     selection_sort(copy_container(data));
@@ -78,6 +82,19 @@ std::vector<int> copy_container(std::vector<int> &data) {
     return data_temp;
 }
 
+
+/**
+ * @title
+ * print_sorted_list
+ * @description
+ * Whether to print the sorted sequence
+ * @memberof
+ * selection : Boolean option
+ * @return
+ * Boolean option
+ */
+void print_sorted_list(bool selection) { flag = selection; }
+
 /**
  * @title
  * print
@@ -95,11 +112,13 @@ std::vector<int> copy_container(std::vector<int> &data) {
  */
 void print(std::vector<int> &vector, const std::string algorithm_name, const clock_t time_difference) {
     // If you want to see if the sorting is correct, open the comment
-        std::cout << "The data is :\n";
+    if (flag) {
+        std::cout << "the data is :\n";
         for (auto const &c : vector) {
             std::cout << c << " ";
         }
-    std::cout << "\n";
+        std::cout << "\n";
+    }
     /** I use the linux os,so clock() number need multiply by 1000 */
     std::cout << "The " << algorithm_name << " takes " << time_difference / 1000 << "ms\n\n";
 }
