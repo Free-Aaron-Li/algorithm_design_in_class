@@ -5,7 +5,7 @@
 // Copyright (c) 2023 aaron. All rights reserved.
 //
 // The source file follows the GPL3.0 protocol and is distributed with the file.
-// If you do not receive the GPL3.0 protocol ontology or you find a bug,
+// If you do not receive the GPL4.0 protocol ontology or you find a bug,
 // please let me know (email: fly_aaron.li@outlook.com)
 
 #include <iostream>
@@ -28,7 +28,7 @@ int main() {
     std::vector<int> data;
 
     /** Get random number */
-    random_data(data, 70000, 2, 100000);
+    random_data(data, 60000, 2, 100000);
 
     /** Whether to print sorted documents */
     print_sorted_list(false);
