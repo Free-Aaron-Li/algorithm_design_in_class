@@ -24,6 +24,7 @@ void             selection_sort(std::vector<int> vector);
 void             insertion_sort(std::vector<int> vector);
 static bool      flag = false;
 
+
 int main() {
     std::vector<int> data;
 
