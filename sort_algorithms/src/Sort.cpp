@@ -10,7 +10,7 @@
 #include "Sort.hpp"
 
 std::vector<int>
-Sort::random_data( int quantity, int min_number, int max_number) {
+Sort::random_data(int quantity, int min_number, int max_number) {
     std::vector<int> data;
     if (quantity > max_number) {
         std::cerr << "The maximum random number is less than the number of target sequence!";
@@ -93,15 +93,36 @@ void
 Sort::select_sort() {
     auto data  = _data;
     auto start = clock();
-    for (int i = 0; i < data.size(); ++i) {
-        int index = i;
-        for (int j = i + 1; j < data.size(); ++j)
-            if (data[j] < data[index])
-                index = j;
-        if (index != i)
-            std::swap(data[i], data[index]);
-    }
-    auto end = clock();
 
+    for (auto i = 0; i < data.size(); ++i) {
+        auto index = i;  /// "index" indicates the index of the largest number.
+        for (auto j = i + 1; j < data.size(); ++j)
+            if (data[j] < data[index])  /// Choose a smallest number.
+                index = j;              /// Forward ergodic.
+        if (index != i)
+            std::swap(data[i], data[index]);  /// Swap with the smallest number.
+    }
+
+    auto end = clock();
     print(data, "Select Sort", time_calculation(end - start));
+}
+
+void
+Sort::bubble_sort() {
+    auto data  = _data;
+    auto start = clock();
+
+    bool change = true; /// Whether an element exchange occurs.
+    for (auto i = data.size() - 1; i > 1 && change; --i) { /// Note: i = data.size() -1
+        change = false;
+        for (auto j = 0; j < i; ++j) { /// Traversal search.
+            if (data[j] > data[j + 1]) { /// Find a bigger number.
+                std::swap(data[j], data[j + 1]);
+                change = true;
+            }
+        }
+    }
+
+    auto end = clock();
+    print(data, "Bubble Sort", time_calculation(end - start));
 }

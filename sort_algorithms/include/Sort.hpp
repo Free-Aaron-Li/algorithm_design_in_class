@@ -114,8 +114,28 @@ class Sort {
 
  public:
     /**
-     * @brief selection sort.
+     * @brief Selection sort.
+     * @details \n
+     * Basic Idea: <b>Select</b> \n
+     * - Select the <b>smallest(or largest)</b> element from the unsorted data and place it at the beginning of the sequence. \n
+     * - Then, find the smallest(or largest) from the remaining elements and put it at the end of the sorted sequence. \n
+     * - Repeat the second step until the number of all data elements to be sorted is zero.\n
+     * \n
+     * Time complexity: worst: O(n^2), average: O(n^2), best: O(n^2).
      */
     void select_sort();
+
+    /**
+     * @brief Bubble sort.
+     * @details \n
+     * Basic Idea: <b>Swap</b> \n
+     * - <b>Compare adjacent</b> elements, and if the first is greater(lesser) than the second, swap them. \n
+     * - Do the same work for every pair of adjacent elements, from the first pair to the last pair. After those steps, the last element will be the largest(smallest) number. \n
+     * - Repeat the above step for all elements, except for those that already been sorted at the end. \n
+     * - Continue to repeat the above steps for increasingly smaller number of elements until no pair of numbers needs to be compared.\n
+     * \n
+     * Time complexity: worst: O(n^2), average: O(n^2), best: O(1).
+     */
+    void bubble_sort();
 };
 #endif  // ALGORITHM_DESIGN_SORT_HPP
