@@ -13,7 +13,9 @@ set_directory_properties(${PROJECT_SOURCE_DIR}/assert)
 
 
 set(SOURCES
+        include/Sort.hpp
         src/main.cpp
+        src/Sort.cpp
 )
 
 #------------------------------------
