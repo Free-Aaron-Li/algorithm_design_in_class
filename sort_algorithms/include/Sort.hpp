@@ -137,5 +137,20 @@ class Sort {
      * Time complexity: worst: O(n^2), average: O(n^2), best: O(1).
      */
     void bubble_sort();
+
+    /**
+     * @brief Insertion Sort.
+     * @details \n
+     * Basic Idea: <b>Move</b>\n
+     * Start from the second element of the array and consider it as the new element. \n
+     * <b>Compare</b> the new element with the <b>previous element</b> in the sorted portion. If the new element is smaller (for ascending order), move the previous element one position ahead.\n
+     * Keep comparing with the next adjacent element until reach an element that is smaller than the new element or until reach the start of the array.\n
+     * Place the new element in its correct position where it is no longer smaller than the adjacent element.\n
+     * Move to the next element in the array and repeat the process, each time requiring fewer comparisons as the sorted portion grows.\n
+     * Continue the above steps until the last element is inserted into its correct position, at which point the array becomes fully sorted.\n
+     * \n
+     * Time complexity: worst: O(n^2), average: O(n^2), best: O(n).
+     */
+    void insertion_sort();
 };
 #endif  // ALGORITHM_DESIGN_SORT_HPP

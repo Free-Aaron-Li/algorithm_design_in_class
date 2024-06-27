@@ -112,11 +112,11 @@ Sort::bubble_sort() {
     auto data  = _data;
     auto start = clock();
 
-    bool change = true; /// Whether an element exchange occurs.
-    for (auto i = data.size() - 1; i > 1 && change; --i) { /// Note: i = data.size() -1
+    bool change = true;                                     /// Whether an element exchange occurs.
+    for (auto i = data.size() - 1; i > 1 && change; --i) {  /// Note: i = data.size() -1
         change = false;
-        for (auto j = 0; j < i; ++j) { /// Traversal search.
-            if (data[j] > data[j + 1]) { /// Find a bigger number.
+        for (auto j = 0; j < i; ++j) {    /// Traversal search.
+            if (data[j] > data[j + 1]) {  /// Find a bigger number.
                 std::swap(data[j], data[j + 1]);
                 change = true;
             }
@@ -125,4 +125,24 @@ Sort::bubble_sort() {
 
     auto end = clock();
     print(data, "Bubble Sort", time_calculation(end - start));
+}
+
+void
+Sort::insertion_sort() {
+    auto data  = _data;
+    auto start = clock();
+
+    for (int i = 1; i < data.size(); ++i) { /// By default, the first element is already sorted.
+        int key = data[i]; /// Extract element.
+        int j   = i - 1;
+
+        while (j >= 0 && data[j] > key) { /// Traversal search.
+            data[j + 1] = data[j]; /// Data moves back.
+            j           = j - 1; /// Search forward.
+        }
+        data[j + 1] = key;
+    }
+
+    auto end = clock();
+    print(data, "Selection Sort", time_calculation(end - start));
 }
