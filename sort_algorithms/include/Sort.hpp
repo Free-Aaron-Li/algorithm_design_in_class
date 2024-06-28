@@ -17,10 +17,13 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <fmt/core.h>
+#include <fmt/format.h>
 
 /**
  * @brief Sort.
- * @details Includes common algorithms: Select, Bubble, Insert, quick, Merge, Heap, Shell, Radix, etc.\n All algorithms are sorted in ascending order.
+ * @details Includes common algorithms: Select, Bubble, Insert, quick, Merge, Heap, Shell, Radix, etc.\n All algorithms
+ * are sorted in ascending order.
  */
 class Sort {
 
@@ -32,7 +35,7 @@ class Sort {
     std::vector<int> _data_temp;
 
     /// Specifies that the string stream is used to store the sorted sequence.
-    std::stringstream _ss;
+    fmt::memory_buffer _buffer;
 
     /// Whether to use standard output.
     bool _output_sorted_sequence = false;
@@ -92,10 +95,10 @@ class Sort {
      */
     ~Sort() {
         if (!_output_specified_file)
-            std::cout << _ss.str() << std::endl;
+            fmt::print(fmt::to_string(_buffer));
         if (_output_specified_file && _outfile) {
-            _outfile << _ss.str() << std::endl;
-            std::cout << "Successfully output to the specified file." << std::endl;
+            _outfile << fmt::to_string(_buffer) << std::endl;
+            fmt::print("Successfully output to the specified file.\n");
         }
     }
 
@@ -117,8 +120,10 @@ class Sort {
      * @brief Selection sort.
      * @details \n
      * Basic Idea: <b>Select</b> \n
-     * - Select the <b>smallest(or largest)</b> element from the unsorted data and place it at the beginning of the sequence. \n
-     * - Then, find the smallest(or largest) from the remaining elements and put it at the end of the sorted sequence. \n
+     * - Select the <b>smallest(or largest)</b> element from the unsorted data and place it at the beginning of the
+     * sequence. \n
+     * - Then, find the smallest(or largest) from the remaining elements and put it at the end of the sorted sequence.
+     * \n
      * - Repeat the second step until the number of all data elements to be sorted is zero.\n
      * \n
      * Time complexity: worst: O(n^2), average: O(n^2), best: O(n^2).
@@ -130,9 +135,11 @@ class Sort {
      * @details \n
      * Basic Idea: <b>Swap</b> \n
      * - <b>Compare adjacent</b> elements, and if the first is greater(lesser) than the second, swap them. \n
-     * - Do the same work for every pair of adjacent elements, from the first pair to the last pair. After those steps, the last element will be the largest(smallest) number. \n
+     * - Do the same work for every pair of adjacent elements, from the first pair to the last pair. After those steps,
+     * the last element will be the largest(smallest) number. \n
      * - Repeat the above step for all elements, except for those that already been sorted at the end. \n
-     * - Continue to repeat the above steps for increasingly smaller number of elements until no pair of numbers needs to be compared.\n
+     * - Continue to repeat the above steps for increasingly smaller number of elements until no pair of numbers needs
+     * to be compared.\n
      * \n
      * Time complexity: worst: O(n^2), average: O(n^2), best: O(1).
      */
@@ -143,14 +150,21 @@ class Sort {
      * @details \n
      * Basic Idea: <b>Move</b>\n
      * Start from the second element of the array and consider it as the new element. \n
-     * <b>Compare</b> the new element with the <b>previous element</b> in the sorted portion. If the new element is smaller (for ascending order), move the previous element one position ahead.\n
-     * Keep comparing with the next adjacent element until reach an element that is smaller than the new element or until reach the start of the array.\n
-     * Place the new element in its correct position where it is no longer smaller than the adjacent element.\n
-     * Move to the next element in the array and repeat the process, each time requiring fewer comparisons as the sorted portion grows.\n
-     * Continue the above steps until the last element is inserted into its correct position, at which point the array becomes fully sorted.\n
+     * <b>Compare</b> the new element with the <b>previous element</b> in the sorted portion. If the new element is
+     * smaller (for ascending order), move the previous element one position ahead.\n Keep comparing with the next
+     * adjacent element until reach an element that is smaller than the new element or until reach the start of the
+     * array.\n Place the new element in its correct position where it is no longer smaller than the adjacent element.\n
+     * Move to the next element in the array and repeat the process, each time requiring fewer comparisons as the sorted
+     * portion grows.\n Continue the above steps until the last element is inserted into its correct position, at which
+     * point the array becomes fully sorted.\n
      * \n
      * Time complexity: worst: O(n^2), average: O(n^2), best: O(n).
      */
     void insertion_sort();
+
+    /**
+     * @brief
+     */
+    void quick_sort();
 };
 #endif  // ALGORITHM_DESIGN_SORT_HPP

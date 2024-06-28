@@ -1,7 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
 project(sort_algorithms)
-
-set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
 
@@ -18,10 +15,19 @@ set(SOURCES
         src/Sort.cpp
 )
 
-#------------------------------------
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+#------------------------------------
+# head files
+#------------------------------------
 
 target_include_directories(${PROJECT_NAME}
         PRIVATE
         ${PROJECT_SOURCE_DIR}/include
 )
+
+#------------------------------------
+# packages
+#------------------------------------
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)

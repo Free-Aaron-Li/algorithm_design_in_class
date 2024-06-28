@@ -63,23 +63,26 @@ Sort::display_mode(const short Options, const std::string& filename) {
             _output_specified_file  = true;
         default: break;
     }
-
-    std::cout << _ss.str();
 }
 
 void
 Sort::print(const std::vector<int>& data, const std::string& algorithm_name, const long time_diff) {
     if (_output_parameter_list) {
-        Sort::_ss << "------------------------------------------------------\n";
-        Sort::_ss << "Algorithm name: " << algorithm_name << "\nSpend time: " << time_diff << "ms\n"
-                  << "------------------------------------------------------\n";
+        fmt::format_to(
+            std::back_inserter(_buffer),
+            "------------------------------------------------------\n"
+            "Algorithm name: {}\nSpend time: {}ms\n"
+            "------------------------------------------------------\n",
+            algorithm_name, time_diff);
     }
     if (_output_sorted_sequence) {
-        Sort::_ss << "------------------------------------------------------\n";
-        Sort::_ss << "The data is: \n";
+        fmt::format_to(
+            std::back_inserter(_buffer),
+            "------------------------------------------------------\n"
+            "The data is: \n");
         for (const auto& element : data)
-            Sort::_ss << element << " ";
-        Sort::_ss << "\n------------------------------------------------------\n";
+            fmt::format_to(std::back_inserter(_buffer), "{} ", element);
+        fmt::format_to(std::back_inserter(_buffer), "\n------------------------------------------------------\n");
     }
 }
 
@@ -132,13 +135,13 @@ Sort::insertion_sort() {
     auto data  = _data;
     auto start = clock();
 
-    for (int i = 1; i < data.size(); ++i) { /// By default, the first element is already sorted.
-        int key = data[i]; /// Extract element.
+    for (int i = 1; i < data.size(); ++i) {  /// By default, the first element is already sorted.
+        int key = data[i];                   /// Extract element.
         int j   = i - 1;
 
-        while (j >= 0 && data[j] > key) { /// Traversal search.
-            data[j + 1] = data[j]; /// Data moves back.
-            j           = j - 1; /// Search forward.
+        while (j >= 0 && data[j] > key) {  /// Traversal search.
+            data[j + 1] = data[j];         /// Data moves back.
+            j           = j - 1;           /// Search forward.
         }
         data[j + 1] = key;
     }
