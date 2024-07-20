@@ -10,12 +10,11 @@
 // Sort in ascending order.
 #ifndef ALGORITHM_DESIGN_SORT_HPP
 #define ALGORITHM_DESIGN_SORT_HPP
-#include <iostream>
+
 #include <random>
 #include <string>
 #include <vector>
 #include <sstream>
-#include <iostream>
 #include <fstream>
 #include <fmt/core.h>
 #include <fmt/format.h>
