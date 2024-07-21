@@ -6,7 +6,7 @@ SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 link_directories(${PROJECT_SOURCE_DIR}/lib)
 
-set_directory_properties(${PROJECT_SOURCE_DIR}/assert)
+set_directory_properties(${PROJECT_SOURCE_DIR}/asset)
 
 
 set(SOURCES
