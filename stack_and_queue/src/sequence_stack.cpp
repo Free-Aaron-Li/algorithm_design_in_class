@@ -19,7 +19,7 @@ Push(SqStack& s, int value) {
 
 bool
 Pop(SqStack& s, int& value) {
-    if (s.top == -1)  /// 栈空
+    if (StackEmpty(s))  /// 栈空
         return false;
     value = s.data[s.top--];  /// 栈顶元素先出栈，再-1
     return true;
@@ -27,8 +27,38 @@ Pop(SqStack& s, int& value) {
 
 bool
 GetTop(const SqStack& s, int& value) {
-    if (s.top == -1)
+    if (StackEmpty(s))
         return false;
     value = s.data[s.top];
     return true;
+}
+
+bool
+StackEmpty(const SqStack& s) {
+    if (s.top == -1)
+        return true;
+    return false;
+}
+
+bool
+bracket_check(std::string str, int length) {
+    SqStack s;         /// 创建临时栈
+    int     top_elem;  /// 栈顶元素
+
+    for (int i = 0; i < length; ++i) {
+        if (str[i] == '(' || str[i] == '[' || str[i] == '{') {
+            Push(s, str[i]);  /// 扫描到左括号，入栈
+        } else {
+            if (StackEmpty(s))  /// 扫描到右括号，且当前栈空
+                return false;
+            Pop(s, top_elem);  /// 栈顶元素出栈
+            if (str[i] == ')' && top_elem != '(')
+                return false;
+            if (str[i] == ']' && top_elem != '[')
+                return false;
+            if (str[i] == '}' && top_elem != '{')
+                return false;
+        }
+    }
+    return StackEmpty(s);
 }

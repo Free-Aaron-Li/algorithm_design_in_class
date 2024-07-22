@@ -40,4 +40,16 @@ Pop(SqStack &s, int &value);
  */
 bool
 GetTop(const SqStack &s, int &value);
+
+/**
+ * @brief 判空
+ */
+bool
+StackEmpty(const SqStack &s);
+
+/**
+ * @brief 应用——括号匹配
+ */
+bool
+bracket_check(std::string str, int length);
 #endif  // ALGORITHM_DESIGN_SEQUENCE_STACK_HPP
