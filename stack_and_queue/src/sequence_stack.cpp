@@ -6,7 +6,7 @@
 
 // This file is part of 'algorithm_design' project.
 // This program is called: 'sequence_stack'.
-// If there are no special instructions, this file is used as an exercise and test file.
+// Implementation of 'sequence_stack.cpp'.
 #include "sequence_stack.hpp"
 
 bool

@@ -6,7 +6,7 @@
 
 // This file is part of 'algorithm_design' project.
 // This program is called: 'single_queue'.
-// If there are no special instructions, this file is used as an exercise and test file.
+// Implementation of 'circular_queue.hpp'.
 #include "circular_queue.hpp"
 
 bool

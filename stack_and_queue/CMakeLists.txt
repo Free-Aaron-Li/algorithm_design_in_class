@@ -17,6 +17,7 @@ set(SOURCES
         src/circular_queue.cpp
         include/link_queue.hpp
         src/link_queue.cpp
+        ../string/src/main.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

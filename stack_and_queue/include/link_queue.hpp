@@ -6,7 +6,7 @@
 
 // This file is part of 'algorithm_design' project.
 // This program is called: 'link_queue'.
-// If there are no special instructions, this file is used as an exercise and test file.
+// Definition and Basic Operation of chain-mapped queues.
 #ifndef ALGORITHM_DESIGN_LINK_QUEUE_HPP
 #define ALGORITHM_DESIGN_LINK_QUEUE_HPP
 

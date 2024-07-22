@@ -6,7 +6,7 @@
 
 // This file is part of 'algorithm_design' project.
 // This program is called: 'main'.
-// If there are no special instructions, this file is used as an exercise and test file.
+// Ingress for stack and queue implementations.
 #include "sequence_stack.hpp"
 #include "circular_queue.hpp"
 

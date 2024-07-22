@@ -6,7 +6,7 @@
 
 // This file is part of 'algorithm_design' project.
 // This program is called: 'sequence_stack'.
-// If there are no special instructions, this file is used as an exercise and test file.
+// Definition and Basic Operation of Stack for Sequence Table Mapping.
 #ifndef ALGORITHM_DESIGN_SEQUENCE_STACK_HPP
 #define ALGORITHM_DESIGN_SEQUENCE_STACK_HPP
 

@@ -6,7 +6,7 @@
 
 // This file is part of 'algorithm_design' project.
 // This program is called: 'single_queue'.
-// If there are no special instructions, this file is used as an exercise and test file.
+// Definition and Basic Operation of Circular Queue.
 #ifndef ALGORITHM_DESIGN_CIRCULAR_QUEUE_HPP
 #define ALGORITHM_DESIGN_CIRCULAR_QUEUE_HPP
 
