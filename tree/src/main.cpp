@@ -8,7 +8,9 @@
 // This program is called: 'main'.
 // If there are no special instructions, this file is used as an exercise and test file.
 
-int
-main() {
+#include <cstdio>
+
+auto
+main() -> int {
     return 0;
 }

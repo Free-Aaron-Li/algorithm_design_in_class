@@ -30,17 +30,19 @@ StrCompare(const SqString& s, const SqString& t) {
 
 int
 Index(const SqString& s, const SqString& t) {
-    if (s.length < t.length)
+    if (s.length < t.length) {
         return -1;
+    }
 
     int      index = 0;
     SqString temp;                              /// 暂存字串
     while (index <= s.length - t.length + 1) {  /// 确定范围
         SubString(temp, s, index, t.length);
-        if (StrCompare(temp, t) != 0)
+        if (StrCompare(temp, t) != 0) {
             ++index;
-        else
+        } else {
             return index;
+        }
     }
     return -1;  /// s中不存在与t相等的字串
 }
@@ -59,8 +61,9 @@ Index1(const SqString& s, const SqString& t) {
             t_index = 0;                      /// 模式串指针归位
         }
 
-        if (t_index >= t.length)        /// 模式串指针溢出，则证明匹配成功
+        if (t_index >= t.length) {      /// 模式串指针溢出，则证明匹配成功
             return s_index - t.length;  /// 返回字串起始位置
+        }
     }
     return -1;
 }

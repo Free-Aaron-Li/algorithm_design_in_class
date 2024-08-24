@@ -18,7 +18,7 @@ InitQueue(LinkQueue& q) {
 
 void
 EnQueue(LinkQueue& q, int value) {
-    auto new_node  = new LinkNode;
+    auto *new_node  = new LinkNode;
     new_node->data = value;
     new_node->next = nullptr;
     q.rear->next   = new_node;  /// 插入新节点
