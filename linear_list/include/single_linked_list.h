@@ -16,7 +16,7 @@
 typedef int ElemType; /// 定义节点元素类型
 
 /**
- * 单链表
+ * 链表节点
  */
 typedef struct LNode {
     ElemType      data;
@@ -85,6 +85,9 @@ Length(LinkList L);
 LNode*
 GetElem(LinkList L, int index);
 
+/**
+ * 按值查找节点
+ */
 LNode*
 LocateElem(LinkList L, ElemType value);
 

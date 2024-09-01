@@ -66,7 +66,7 @@ insert_node_by_header_not_head(LinkList* L) {
     printf("input node value, if input 9999 end input:\n");
     scanf("%d", &value);
     *L         = (LNode*) malloc(sizeof(LNode)); /// 创建头节点（类同带头节点初始化操作）
-    (*L)->next = NULL; /// 舍弃头节点赋值
+    (*L)->next = NULL; /// 舍弃头节点赋值，保证尾节点指针置空
     while (value != 9999) {
         /// 输入9999结束插入
         LNode* new_node = (LNode*) malloc(sizeof(LNode)); /// 新节点
