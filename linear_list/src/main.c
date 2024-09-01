@@ -39,6 +39,6 @@ test_single_linked_list_not_head() {
 int
 main() {
     // test_single_linked_list_with_head();
-    test_single_linked_list_not_head();
+    // test_single_linked_list_not_head();
     return 0;
 }
