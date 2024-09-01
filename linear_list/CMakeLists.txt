@@ -10,14 +10,9 @@ set_directory_properties(${PROJECT_SOURCE_DIR}/asset)
 
 
 set(SOURCES
-        src/main.cpp
-        src/sequence.cpp
-        include/single_link.hpp
-        src/single_link.cpp
-        include/double_link.hpp
-        src/double_link.cpp
-        include/static_link.hpp
-        src/static_link.cpp
+        src/main.c
+        include/single_linked_list.h
+        src/single_linked_list.c
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
