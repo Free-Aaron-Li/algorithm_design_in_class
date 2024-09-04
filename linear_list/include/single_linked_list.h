@@ -6,7 +6,10 @@
 
 // This file is part of 'algorithm_design' project.
 // This program is called: 'linked_list'.
-// If there are no special instructions, this file is used as an exercise and test file.
+// The definition of the nodes and operations of the linked list, including:
+// whether the linked list takes the head node,
+// inserts the node (pre-insertion method, post-insertion method),
+// deletes the node, and finds the node (search by value, search by serial number).
 #ifndef LINKED_LIST_HPP
 #define LINKED_LIST_HPP
 

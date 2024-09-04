@@ -6,7 +6,7 @@
 
 // This file is part of 'algorithm_design' project.
 // This program is called: 'linked_list'.
-// If there are no special instructions, this file is used as an exercise and test file.
+// Single linked list implementation.
 #include "single_linked_list.h"
 
 void
